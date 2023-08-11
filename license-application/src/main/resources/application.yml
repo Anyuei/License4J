@@ -1,0 +1,8 @@
+server:
+    port: 9500
+sys:
+    license:
+        key: C:\Users\pei\Desktop\license4\license.key
+        log: C:\Users\pei\Desktop\license4
+        pub: C:\Users\pei\Desktop\license4\license.pub
+

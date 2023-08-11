@@ -1,0 +1,24 @@
+server:
+    port: 9600
+sys:
+    license:
+        key: C:\Users\pei\Desktop\license3\license.key
+        pri: C:\Users\pei\Desktop\license3\license.pri
+        pub: C:\Users\pei\Desktop\license3\license.pub
+#数据库的配置信息
+spring:
+    datasource:
+        url: 
+        username: 
+        password: 
+mybatis:
+    #开启驼峰命名法
+    configuration:
+        map-underscore-to-camel-case: true
+mybatis-plus:
+    # xml地址
+    mapper-locations: classpath:mapper/*Mapper.xml
+    # 实体扫描，多个package用逗号或者分号分隔
+    configuration:
+        # 这个配置会将执行的sql打印出来，在开发或测试的时候可以用
+        log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
