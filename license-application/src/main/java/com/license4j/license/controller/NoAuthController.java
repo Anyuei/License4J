@@ -5,6 +5,8 @@ import com.license4j.license.config.LicenseHandler;
 import com.license4j.license.entity.NewLicenseRequest;
 import com.license4j.license.entity.NewPubKeyRequest;
 import com.license4j.license.entity.Result;
+import com.license4j.license.utils.CipherUtil;
+import com.license4j.license.utils.DecodeUtil;
 import com.license4j.license.utils.LicenseUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -62,5 +64,15 @@ public class NoAuthController {
             throw new RuntimeException("文件写入失败");
         }
         return Result.ok("更新公钥成功");
+    }
+
+    @ApiOperation(value = "获取当前系统唯一身份ID,用于授权平台办法许可证", notes = "获取当前系统唯一身份ID")
+    @ApiOperationSupport(order = 5)
+    @GetMapping("/getId")
+    public String getId() {
+        String applicationInfo = CipherUtil.getApplicationInfo();
+        String encryptAes = DecodeUtil.encryptBySymmetry(applicationInfo, DecodeUtil.AES_KEY, DecodeUtil.AES, true);
+        log.info("授权码获取记录:" + encryptAes);
+        return encryptAes;
     }
 }

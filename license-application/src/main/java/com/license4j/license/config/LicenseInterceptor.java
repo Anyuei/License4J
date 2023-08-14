@@ -23,9 +23,13 @@ public class LicenseInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         String servletPath = request.getServletPath();
         log.debug("进入拦截器,URL:{}", servletPath);
+        //无需登录校验接口直接跳过
+        if(servletPath.startsWith("/noAuth")){
+            return true;
+        }
         // 查看是否授权成功
         boolean license = licenseHandler.loadLicense();
-        if (!license&&!servletPath.startsWith("/noAuth")) {
+        if (!license) {
             throw new RuntimeException("系统暂未授权");
         }
         return true;

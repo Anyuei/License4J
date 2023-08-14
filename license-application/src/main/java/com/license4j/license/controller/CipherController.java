@@ -64,15 +64,7 @@ public class CipherController {
         return resultMap;
     }
 
-    @ApiOperation(value = "获取当前系统唯一身份ID,用于授权平台办法许可证", notes = "获取当前系统唯一身份ID")
-    @ApiOperationSupport(order = 5)
-    @GetMapping("/getId")
-    public String getId() {
-        String applicationInfo = CipherUtil.getApplicationInfo();
-        String encryptAes = DecodeUtil.encryptBySymmetry(applicationInfo, DecodeUtil.AES_KEY, DecodeUtil.AES, true);
-        log.info("授权码获取记录:" + encryptAes);
-        return encryptAes;
-    }
+
 
 
     @ApiOperation(value = "测试请求拦截验证", notes = "测试请求拦截验证")

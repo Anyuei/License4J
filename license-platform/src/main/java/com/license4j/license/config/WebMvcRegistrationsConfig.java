@@ -10,19 +10,12 @@ import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @author LiGezZ
- */
 @Configuration
 public class WebMvcRegistrationsConfig extends WebMvcConfigurationSupport {
 
 
     @Resource
     private LicenseInterceptor licenseInterceptor;
-
-    @Resource
-    private ObjectMapper serializingObjectMapper;
-
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
 
@@ -38,8 +31,7 @@ public class WebMvcRegistrationsConfig extends WebMvcConfigurationSupport {
         ignorePath.add("/templates/**");
         ignorePath.add("/error");
         ignorePath.add("/cipher/check");
-        ignorePath.add("/noAuth/**");
-
+        ignorePath.add("/manager/login");
         //先拦截认证，再拦截授权
         registry.addInterceptor(licenseInterceptor).addPathPatterns("/**").excludePathPatterns(ignorePath);
     }

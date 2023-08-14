@@ -45,12 +45,17 @@ public class LicenseUtil {
      * @param licenseCode 应用授权码，由用户通过接口根据一定规则生成
      * @return
      */
-    public static License getLicense(LocalDateTime startTime, LocalDateTime endTime, String licenseCode, String systemName) {
+    public static License getLicense(LocalDateTime startTime,
+                                     LocalDateTime endTime,
+                                     String licenseCode,
+                                     String systemName,
+                                     String companyName) {
         return getLicense(
                 startTime.toInstant(ZoneOffset.of("+8")).toEpochMilli(),
                 endTime.toInstant(ZoneOffset.of("+8")).toEpochMilli(),
                 licenseCode,
-                systemName);
+                systemName,
+                companyName);
     }
 
     /**
@@ -64,7 +69,11 @@ public class LicenseUtil {
      * @param licenseCode 应用授权码，由用户通过接口根据一定规则生成
      * @return
      */
-    public static License getLicense(Long startTime, Long endTime, String licenseCode, String systemName) {
+    public static License getLicense(Long startTime,
+                                     Long endTime,
+                                     String licenseCode,
+                                     String systemName,
+                                     String companyName) {
         License license = new License();
         try {
             license.setSystemName(systemName);
@@ -75,7 +84,7 @@ public class LicenseUtil {
             CipherLicense.checkInputTime(startLocalTime, endLocalTime);
             license.setStartTime(startLocalTime);
             license.setEndTime(endLocalTime);
-
+            license.setCompanyName(companyName);
 
             PublicAndPrivateKey publicAndPrivateKey = EncryptUtil.generateKeyPair(startTime, licenseCode);
             BeanUtils.copyProperties(publicAndPrivateKey, license);

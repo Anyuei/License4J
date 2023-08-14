@@ -34,12 +34,12 @@ public class CipherController {
     @ApiOperation(value = "生成新的公钥和授权文件", notes = "生成新的公钥和授权文件")
     @PostMapping("/createNewLicenseAndPubKey")
     public Result createNewLicenseAndPubKey(@RequestBody CipherLicense param) {
-
         License license = LicenseUtil.getLicense(
                 param.getStartTime(),
                 param.getEndTime(),
                 param.getLicenseCode(),
-                param.getSystemName());
+                param.getSystemName(),
+                param.getCompanyName());
         licenseService.save(license);
         return Result.ok();
     }

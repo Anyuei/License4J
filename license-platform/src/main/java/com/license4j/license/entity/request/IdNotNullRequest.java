@@ -3,7 +3,8 @@ package com.license4j.license.entity.request;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
-import lombok.NonNull;
+
+import javax.validation.constraints.NotNull;
 
 /**
  * @Author: AnYunPei
@@ -14,7 +15,7 @@ import lombok.NonNull;
 public class IdNotNullRequest {
 
     @ApiModelProperty(value = "id")
-    @NonNull
+    @NotNull
     private Long id;
 
 }
