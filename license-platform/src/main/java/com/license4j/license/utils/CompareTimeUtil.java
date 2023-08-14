@@ -8,11 +8,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.apache.commons.codec.binary.Base64;
-/**
- * @Author: AnYunPei
- * @Date: 2022/9/11 16:42
- * @Description: 获取比较时间工具类
- **/
+
 public class CompareTimeUtil {
 
     /**
@@ -30,7 +26,6 @@ public class CompareTimeUtil {
      *
      * @param startTime   授权开始时间
      * @param licenseCode 授权机器码
-     * @return
      */
     public static String generateCompareTime(Long startTime, String licenseCode) {
 
@@ -41,7 +36,7 @@ public class CompareTimeUtil {
         // 遍历字符串
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < compareTime.length(); i++) {
-            sb.append((compareTime.charAt(i) - 0));
+            sb.append((compareTime.charAt(i)));
             if (i < compareTime.length() - 1) {
                 sb.append("-");
             }
@@ -66,7 +61,6 @@ public class CompareTimeUtil {
      * @param input : 原文
      * @param key   : 密钥
      * @return : 密文
-     * @throws Exception
      */
     public static String encryptBySymmetry(String input, String key) {
         try {

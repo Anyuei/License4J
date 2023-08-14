@@ -7,11 +7,6 @@ import lombok.Data;
 
 import java.time.LocalDateTime;
 
-/**
- * @Author: AnYunPei
- * @Date: 2022/3/10 11:15
- * @Description:
- **/
 @Data
 public class CipherLicense {
 
@@ -35,7 +30,7 @@ public class CipherLicense {
 
     @ApiModelProperty(value = "许可证书名称")
     private String licenseName;
-    public static Boolean checkInputTime(LocalDateTime startLocalDateTime,LocalDateTime endLocalDateTime){
+    public static void checkInputTime(LocalDateTime startLocalDateTime, LocalDateTime endLocalDateTime){
         if (startLocalDateTime.isEqual(endLocalDateTime)) {
             throw new RuntimeException("开始时间不能等于结束时间");
         }
@@ -45,6 +40,5 @@ public class CipherLicense {
         if (endLocalDateTime.isBefore(LocalDateTime.now())) {
             throw new RuntimeException("结束时间必须大于当前时间");
         }
-        return true;
     }
 }

@@ -6,11 +6,6 @@ import lombok.Data;
 
 import java.io.Serializable;
 
-/**
- * 接口返回数据格式
- *
- * @author SongJian
- */
 @ApiModel(value = "通用返回体")
 @Data
 public class Result implements Serializable {

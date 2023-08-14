@@ -3,9 +3,6 @@ package com.license4j.license.utils;
 import java.text.SimpleDateFormat;
 import java.util.UUID;
 
-/**
- * @Author: AnYunPei
- **/
 public class UUIDUtils {
     public UUIDUtils() {
     }

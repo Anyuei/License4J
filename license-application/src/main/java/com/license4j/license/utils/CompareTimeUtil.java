@@ -14,11 +14,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.apache.commons.codec.binary.Base64;
-/**
- * @Author: AnYunPei
- * @Date: 2022/9/11 16:42
- * @Description: 获取比较时间工具类
- **/
+
 public class CompareTimeUtil {
 
     /**

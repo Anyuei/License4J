@@ -15,10 +15,6 @@ import java.time.ZoneOffset;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * @Author: AnYunPei
- * @Description:
- **/
 @Api(tags = "加密授权接口管理")
 @RestController
 @RequestMapping("/cipher")

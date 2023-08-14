@@ -9,9 +9,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * @author LiGezZ
- */
+
 @Component
 @Slf4j
 public class LicenseInterceptor implements HandlerInterceptor {

@@ -15,10 +15,6 @@ import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.stream.Collectors;
 
-/**
- * @Author: AnYunPei
- * @Description: 生成公钥私钥及授权码
- **/
 @Slf4j
 public class LicenseUtil {
 
@@ -77,7 +73,7 @@ public class LicenseUtil {
         if (compareTime > endTime || compareTime < startTime) {
             LocalDateTime start = LocalDateTime.ofEpochSecond(startTime / 1000, 0, ZoneOffset.ofHours(8));
             LocalDateTime end = LocalDateTime.ofEpochSecond(endTime / 1000, 0, ZoneOffset.ofHours(8));
-            throw new RuntimeException("系统许可证已过期!当前许可证有效期为："+start+"~"+end+",请联系系统管理员申请新的许可");
+            throw new RuntimeException("系统许可证已过期!当前许可证有效期为：" + start + "~" + end + ",请联系系统管理员申请新的许可");
         }
         return true;
     }

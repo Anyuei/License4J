@@ -14,10 +14,6 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 import javax.validation.Valid;
 
-/**
- * @Author: AnYunPei
- * @Description:
- **/
 @Api(tags = "加密授权接口管理")
 @RestController
 @RequestMapping("/cipher")

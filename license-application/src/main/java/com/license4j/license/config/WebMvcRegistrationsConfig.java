@@ -10,9 +10,7 @@ import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @author LiGezZ
- */
+
 @Configuration
 public class WebMvcRegistrationsConfig extends WebMvcConfigurationSupport {
 

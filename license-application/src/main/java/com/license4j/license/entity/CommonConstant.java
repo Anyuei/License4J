@@ -3,11 +3,6 @@ package com.license4j.license.entity;
 import java.io.File;
 import java.time.format.DateTimeFormatter;
 
-/**
- * 公共常量池
- *
- * @author SongJian
- */
 public interface CommonConstant {
 
     /* 业务正常 */ int RESULT_OK_200 = 200;

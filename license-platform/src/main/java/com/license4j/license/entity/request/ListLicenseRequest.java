@@ -8,11 +8,6 @@ import lombok.Data;
 
 import java.time.LocalDateTime;
 
-/**
- * @Author: AnYunPei
- * @Date: 2022/3/10 11:15
- * @Description:
- **/
 @Data
 public class ListLicenseRequest extends Pagination {
 

@@ -13,10 +13,6 @@ import java.util.Arrays;
 
 import org.apache.commons.codec.binary.Base64;
 
-/**
- * @Author: AnYunPei
- * @Description: 解密工具类
- **/
 public class DecodeUtil {
 
     public final static String RSA = "RSA";

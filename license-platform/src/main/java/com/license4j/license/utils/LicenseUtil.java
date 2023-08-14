@@ -20,10 +20,6 @@ import java.time.ZoneOffset;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * @Author: AnYunPei
- * @Description: 生成公钥私钥及授权码
- **/
 @Slf4j
 public class LicenseUtil {
 

@@ -8,11 +8,6 @@ import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 
-/**
- * @Author: AnYunPei
- * @Date: 2021/8/20 15:38
- * @Description:
- **/
 @Component
 @Slf4j
 public class LicenseHandler {
