@@ -46,6 +46,7 @@ public class CipherController {
         try {
             map = LicenseUtil.loadLicense(keyPath, pubPath);
         } catch (Exception e) {
+            log.info(e.getMessage());
             resultMap.put("许可证状态", e.getMessage());
             resultMap.put("许可证有效期", "-");
             return resultMap;

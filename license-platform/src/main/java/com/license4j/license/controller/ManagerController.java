@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import javax.validation.Valid;
 
 @Api(tags = "管理员模块")
 @RestController
@@ -28,7 +29,7 @@ public class ManagerController {
     private ManagerService managerService;
     @ApiOperation(value = "管理员登录", notes = "管理员登录")
     @PostMapping("/login")
-    public Result login(@RequestBody LoginRequest loginRequest) {
+    public Result login(@Valid @RequestBody LoginRequest loginRequest) {
         QueryWrapper<Manager> managerQueryWrapper = new QueryWrapper<>();
         managerQueryWrapper.eq("manager_name",loginRequest.getManagerName());
         Manager one = managerService.getOne(managerQueryWrapper);

@@ -37,7 +37,13 @@ public class NoAuthController {
     @PostMapping("/setNewLicense")
     public Result setNewLicense(@RequestBody NewLicenseRequest newLicenseRequest) {
         //校验许可证
-        LicenseUtil.checkLicense(newLicenseRequest.getNewLicense(), pubPath);
+        try{
+            LicenseUtil.checkLicense(newLicenseRequest.getNewLicense(), pubPath);
+        }catch (Exception e){
+            log.info(e.getMessage());
+            throw new RuntimeException("许可证错误,请联系管理员");
+        }
+
         try {
             FileUtils.writeStringToFile(new File(keyPath), newLicenseRequest.getNewLicense(), String.valueOf(StandardCharsets.UTF_8));
             //失败次数置0
@@ -45,6 +51,7 @@ public class NoAuthController {
             //许可置为有效
             LicenseHandler.LICENSE_IS_AVAILABLE = true;
         } catch (IOException e) {
+            log.error(e.getMessage());
             throw new RuntimeException("文件写入失败");
         }
         return Result.ok("更新许可成功");
@@ -61,6 +68,7 @@ public class NoAuthController {
             //许可置为有效
             LicenseHandler.LICENSE_IS_AVAILABLE = true;
         } catch (IOException e) {
+            log.error(e.getMessage());
             throw new RuntimeException("文件写入失败");
         }
         return Result.ok("更新公钥成功");
