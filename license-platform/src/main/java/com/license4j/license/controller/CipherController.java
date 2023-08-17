@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.LocalDateTime;
+
 
 @Tag(name = "加密授权接口管理")
 @RestController
@@ -35,6 +37,9 @@ public class CipherController {
     @Operation(summary = "生成新的公钥和授权文件", description = "生成新的公钥和授权文件")
     @PostMapping("/createNewLicenseAndPubKey")
     public Result createNewLicenseAndPubKey(@RequestBody CipherLicense param) {
+        if (null==param.getStartTime()){
+            param.setStartTime(LocalDateTime.now());
+        }
         License license = LicenseUtil.getLicense(
                 param.getStartTime(),
                 param.getEndTime(),

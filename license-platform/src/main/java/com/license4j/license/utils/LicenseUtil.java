@@ -74,8 +74,10 @@ public class LicenseUtil {
         try {
             license.setSystemName(systemName);
 
-            LocalDateTime startLocalTime = LocalDateTime.ofEpochSecond(startTime / 1000, 0, ZoneOffset.ofHours(8));
-            LocalDateTime endLocalTime = LocalDateTime.ofEpochSecond(endTime / 1000, 0, ZoneOffset.ofHours(8));
+            LocalDateTime startLocalTime =
+                    LocalDateTime.ofEpochSecond(startTime / 1000, 0, ZoneOffset.ofHours(8));
+            LocalDateTime endLocalTime =
+                    LocalDateTime.ofEpochSecond(endTime / 1000, 0, ZoneOffset.ofHours(8));
             //时间合法性校验
             CipherLicense.checkInputTime(startLocalTime, endLocalTime);
             license.setStartTime(startLocalTime);
