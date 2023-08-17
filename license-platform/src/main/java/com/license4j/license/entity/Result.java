@@ -1,7 +1,6 @@
 package com.license4j.license.entity;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -11,7 +10,7 @@ import java.io.Serializable;
  *
  * @author SongJian
  */
-@ApiModel(value = "通用返回体")
+@Schema(name = "通用返回体")
 @Data
 public class Result implements Serializable {
 
@@ -20,19 +19,19 @@ public class Result implements Serializable {
     /**
      * 返回处理消息
      */
-    @ApiModelProperty(value = "返回信息", example = "操作成功")
+    @Schema(name = "返回信息", example = "操作成功")
     private String message = "操作成功！";
 
     /**
      * 返回代码
      */
-    @ApiModelProperty(value = "状态码", example = "200")
+    @Schema(name = "状态码", example = "200")
     private Integer code;
 
     /**
      * 返回数据对象 data
      */
-    @ApiModelProperty(value = "返回数据")
+    @Schema(name = "返回数据")
     private Object result;
 
     public static Result ok() {

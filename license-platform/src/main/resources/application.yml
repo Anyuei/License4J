@@ -22,3 +22,23 @@ mybatis-plus:
     configuration:
         # 这个配置会将执行的sql打印出来，在开发或测试的时候可以用
         log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+# ===== SpringDoc配置 =====#
+springdoc:
+    swagger-ui:
+        path: /swagger-ui.html
+        tags-sorter: alpha
+        operations-sorter: alpha
+        enabled: true
+    api-docs:
+        path: /v3/api-docs
+        enabled: true
+    group-configs:
+          group: platform
+          paths-to-match: /**
+          packages-to-scan: com.license4j.license
+
+knife4j:
+    enable: true
+    setting:
+        language: zh_cn
+

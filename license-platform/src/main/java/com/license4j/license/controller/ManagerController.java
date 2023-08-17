@@ -6,8 +6,10 @@ import com.license4j.license.entity.Result;
 import com.license4j.license.entity.request.LoginRequest;
 import com.license4j.license.service.ManagerService;
 import com.license4j.license.utils.TokenUtil;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.annotation.Resource;
+import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -16,10 +18,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.annotation.Resource;
-import javax.validation.Valid;
 
-@Api(tags = "管理员模块")
+@Tag(name = "管理员模块")
 @RestController
 @RequestMapping("/manager")
 @Slf4j
@@ -27,7 +27,7 @@ public class ManagerController {
 
     @Resource
     private ManagerService managerService;
-    @ApiOperation(value = "管理员登录", notes = "管理员登录")
+    @Operation(summary = "管理员登录", description = "管理员登录")
     @PostMapping("/login")
     public Result login(@Valid @RequestBody LoginRequest loginRequest) {
         QueryWrapper<Manager> managerQueryWrapper = new QueryWrapper<>();

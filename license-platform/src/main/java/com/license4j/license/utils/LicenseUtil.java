@@ -4,12 +4,11 @@ import com.license4j.license.entity.CipherLicense;
 import com.license4j.license.entity.License;
 import com.license4j.license.entity.PublicAndPrivateKey;
 import com.license4j.license.service.LicenseService;
+import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.FileUtils;
 import org.springframework.beans.BeanUtils;
-import org.springframework.util.Base64Utils;
 
-import javax.annotation.Resource;
 import java.io.File;
 import java.nio.charset.StandardCharsets;
 import java.security.PrivateKey;
@@ -17,6 +16,7 @@ import java.security.PublicKey;
 import java.text.ParseException;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
+import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -119,7 +119,7 @@ public class LicenseUtil {
             // 凯撒加密
             String licenseStr = KaiserBuilderUtil.encrypt(encrypted);
             //FileUtils.writeStringToFile(new File(licensePath), encryptKaiser, String.valueOf(StandardCharsets.UTF_8));
-            license.setLicense(Base64Utils.encodeToString(licenseStr.getBytes(StandardCharsets.UTF_8)));
+            license.setLicense(Base64.getEncoder().encodeToString((licenseStr.getBytes(StandardCharsets.UTF_8))));
         } catch (Exception e) {
             log.error("生成授权文件失效！" + e);
             throw new RuntimeException("生成授权文件失效!"+e.getMessage());
@@ -140,7 +140,7 @@ public class LicenseUtil {
      */
     public static Map<String, String> checkLicense(String licenseText, String pubStr) {
         // 凯撒解密
-        String decryptLicense = KaiserBuilderUtil.decrypt(new String(Base64Utils.decodeFromString(licenseText)));
+        String decryptLicense = KaiserBuilderUtil.decrypt(new String(Base64.getDecoder().decode(licenseText)));
         // 从公钥字符串中获取公钥
         PublicKey publicKey = EncryptUtil.loadPublicKeyFromString(pubStr);
         // 使用公钥解密许可证，获取许可证信息

@@ -2,7 +2,7 @@ package com.license4j.license.entity;
 
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -10,25 +10,25 @@ import java.time.LocalDateTime;
 @Data
 public class CipherLicense {
 
-    @ApiModelProperty(value = "开始时间", required = true)
+    @Schema(name = "开始时间", required = true)
     @JsonFormat(locale = "zh", timezone = "GMT+8", pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime startTime;
 
 
-    @ApiModelProperty(value = "结束时间", required = true)
+    @Schema(name = "结束时间", required = true)
     @JsonFormat(locale = "zh", timezone = "GMT+8", pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime endTime;
 
-    @ApiModelProperty(value = "授权码唯一code信息", required = true)
+    @Schema(name = "授权码唯一code信息", required = true)
     private String licenseCode;
 
-    @ApiModelProperty(value = "系统名称", required = true)
+    @Schema(name = "系统名称", required = true)
     private String systemName;
 
-    @ApiModelProperty(value = "公司名称")
+    @Schema(name = "公司名称")
     private String companyName;
 
-    @ApiModelProperty(value = "许可证书名称")
+    @Schema(name = "许可证书名称")
     private String licenseName;
     public static void checkInputTime(LocalDateTime startLocalDateTime, LocalDateTime endLocalDateTime){
         if (startLocalDateTime.isEqual(endLocalDateTime)) {

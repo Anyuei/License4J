@@ -6,9 +6,7 @@ import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfi
 import org.springframework.boot.autoconfigure.security.servlet.SecurityFilterAutoConfiguration;
 
 @SpringBootApplication(exclude = {SecurityAutoConfiguration.class, SecurityFilterAutoConfiguration.class})
-
 public class LicenseDemoPlatformApplication {
-
     public static void main(String[] args) {
         SpringApplication.run(LicenseDemoPlatformApplication.class, args);
     }

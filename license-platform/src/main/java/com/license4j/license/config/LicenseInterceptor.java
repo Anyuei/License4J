@@ -1,18 +1,12 @@
 package com.license4j.license.config;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.license4j.license.entity.Result;
 import com.license4j.license.utils.TokenUtil;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
-
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import java.io.PrintWriter;
 
 @Component
 @Slf4j

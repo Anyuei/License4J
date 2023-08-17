@@ -1,15 +1,14 @@
 package com.license4j.license.entity.request;
 
-
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
-import javax.validation.constraints.NotNull;
 
 @Data
 public class IdNotNullRequest {
 
-    @ApiModelProperty(value = "id")
+    @Schema(name = "id")
     @NotNull
     private Long id;
 

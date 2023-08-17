@@ -1,12 +1,12 @@
 package com.license4j.license.entity;
 
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 @Data
 public class PublicKeyAndLicenseKey {
-    @ApiModelProperty(value = "公钥")
+    @Schema(name = "公钥")
     private String pubKey;
-    @ApiModelProperty(value = "许可证")
+    @Schema(name = "许可证")
     private String licenseKey;
 }
