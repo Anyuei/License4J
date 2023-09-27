@@ -1,7 +1,13 @@
 # License4J
-启动项目前请配置好数据库连接配置信息
+启动项目前请在pom文件配置好数据库连接配置信息
 
-![图片](https://github.com/Anyuei/License4J/assets/30917395/53b2720e-6e97-421e-b021-a825fed701c5)
+#数据库的配置信息
+spring:
+    datasource:
+        url: jdbc:mysql://
+        username: 
+        password: 
+        driver-class-name: com.mysql.cj.jdbc.Driver
 
 修改system项目里的本地公钥存放路径
 
