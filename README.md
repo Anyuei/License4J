@@ -2,12 +2,13 @@
 启动项目前请在pom文件配置好数据库连接配置信息
 
 #数据库的配置信息
-spring:
+```spring:
     datasource:
         url: jdbc:mysql://
         username: 
         password: 
         driver-class-name: com.mysql.cj.jdbc.Driver
+```
 
 修改system项目里的本地公钥存放路径
 
